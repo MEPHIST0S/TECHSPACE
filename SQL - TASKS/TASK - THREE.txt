@@ -1,0 +1,81 @@
+## Tapşırıq 1:
+ - İlk növbədə bir-biri ilə əlaqəli `Customers`(musteriler) 
+və `Salesmen`(saticilar) cədvəlləri yaradın.   
+ (Tables.png)
+
+CREATE DATABASE SALES
+
+CREATE TABLE SALESMEN (
+
+ ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ NAME VARCHAR(40) NOT NULL,
+ CITY VARCHAR(40) NOT NULL,
+ COMMISSION DECIMAL(4) NOT NULL
+
+);
+
+CREATE TABLE CUSTOMERS (
+
+ ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ NAME VARCHAR(40) NOT NULL,
+ CITY VARCHAR(40) NOT NULL,
+ GRADE INT NOT NULL,
+ SALESMAN INT NOT NULL,
+ FOREIGN KEY (SALESMAN) REFERENCES SALESMEN(ID)
+
+);
+
+## Tapşırıq 2:
+ - Hansı satıcının hansı müştəri ile işlədiyini bilmək üçün SQL statement yazın.  
+ (image1.png)
+
+INSERT INTO SALESMEN (NAME, CITY, COMMISSION)
+VALUES 
+('John Doe', 'New York', 15),
+('Jane Smith', 'Los Angeles', 12),
+('Michael Brown', 'Chicago', 10),
+('Emily Davis', 'Houston', 14),
+('James Wilson', 'Phoenix', 11);
+
+INSERT INTO CUSTOMERS (NAME, CITY, GRADE, SALESMAN)
+VALUES 
+('Alice Johnson', 'New York', 200, 1),
+('Bob Smith', 'Los Angeles', 300, 2),
+('Carol Davis', 'Chicago', 150, 3),
+('David Brown', 'Houston', 400, 4),
+('Eve Wilson', 'Phoenix', 250, 5);
+
+SELECT 
+ C.NAME AS CUSTOMER, 
+ C.CITY AS CITY,
+ S.NAME AS SALESMAN,
+ S.COMMISSION AS COMMISSION
+FROM CUSTOMERS C
+JOIN SALESMEN S
+ON C.SALESMAN = S.ID;
+
+## Tapşırıq 3:
+ - Şirkətdən 12% -dən çox komissiya alan işlərinə satıcı təyin edən müştərilərin siyahısını tapmaq üçün bir SQL statement yazın.
+ (image2.png)
+
+SELECT 
+ C.NAME AS CUSTOMER, 
+ C.CITY AS CITY,
+ S.NAME AS SALESMAN,
+ S.COMMISSION AS COMMISSION
+FROM CUSTOMERS C
+JOIN SALESMEN S
+ON C.SALESMAN = S.ID
+WHERE S.COMMISSION > 12;
+
+## Tapşırıq 4:
+ - Eyni şəhərə aid olan satıcılar və müştərilər üçün satıcı adı, müştəri adı və şəhərləri ilə siyahı hazırlamaq üçün SQL statement yazın.
+ (image3.png)
+
+SELECT 
+ C.NAME AS CUSTOMER, 
+ S.NAME AS SALESMAN,
+ C.CITY AS CITY
+FROM CUSTOMERS C
+JOIN SALESMEN S
+ON C.CITY = S.CITY;

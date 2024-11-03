@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Discounted Products{% endblock %}
+
+{% block content %}
+
+<!-- Discounted Products Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+      <!-- Product List Start -->
+      <div class="col-lg-9 col-md-12">
+        <div class="row">
+          {% for product in products %}
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+              <img src="{{ url_for('static', filename='img/' ~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">Price: ${{ product.price }} <br> Discounted Price: ${{ product.discounted_price }}</p>
+                <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- Product List End -->
+    </div>
+  </div>
+  <!-- Discounted Products End -->
+
+{% endblock %}

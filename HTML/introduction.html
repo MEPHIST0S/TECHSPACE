@@ -1,0 +1,184 @@
+ <!DOCTYPE html> <!--Type -->
+<html lang = "en"> <!--Language of whole project and opening html part-->
+
+<head> <!--Heading Part-->
+    <meta charset = "UTF - 8"> <!--For fully representing all characters-->
+    <meta name = "viewport" content = "width = device - width, initial - scale = 1.0"> <!--The Size and representing-->
+    <title>HTML INTRODUCTION</title> <!--Title of Tab-->
+    <!--For CSS-->
+    <style></style>
+    <link rel="stylesheet" href="/assets/introduction.css">
+</head> <!--Closing head-->
+
+<body> <!-- style = "background-color: black; color: #ffffff;" The Main part, with view configurations -->
+
+    <!--
+    <h1>First Phrase</h1>
+    <h2>Text in h2</h2>
+    <h3>Text in h3</h3>
+    <h4>Text in h4</h4>
+    <h5>Text in h5</h5>
+    <h6>Text in h6</h6>
+    -->
+    <!--
+    There should be only 1 h1 because of the size
+    -->
+
+    <h1>Title</h1>
+    <p> <!--The <p> tag in HTML is used to define a paragraph-->
+        <b>Main</b> <!--Bold Style-->
+        <strong><br>Hello, world!</strong> <!--Strong also for bold style, br for definein that the line should be in new line-->
+        This is my very first HTML page. 
+        I'm learning how to create web pages using HTML, the standard markup language for creating web pages.
+    </p>
+
+    <!--For adding Image we use tag img-->
+    <img 
+        src = "./assets/HTML.jpg"  
+        alt = "Description of the image" 
+        width = "500" height = "300"
+    >
+        <!--src - Specifies the path to the image file-->
+        <!--alt - Provides alternative text for the image, which is displayed if the image cannot be loaded-->
+        <!--width and height - Set the dimensions of the image-->
+    
+    <a href="https://github.com/MEPHIST0S/TechSpace" target = "_blank"> <!--For Links-->
+        <h1>Author</h1> <!--Which text act as link-->
+        <!--href - Link to where-->
+        <!--target - here used for defining where our window should open-->
+    </a>
+    <br>
+    <table border = "1" align = "center">
+        <thead>
+            <tr>
+                <td>Header 1</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Cell 1 Row 1</td>
+            </tr>
+            <tr>
+                <td>Cell 2 Row 1</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Footer</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!--Unordered List-->
+    <ul type = "circle">
+        <li>Monday</li>
+        <li>Tuesday</li>
+    </ul>
+
+    <!--Ordered List-->
+    <ol type = "A">
+        <li>Week</li>
+            <ol>
+                <li>Monday</li>
+            </ol>
+        <li>Month</li>
+            <ul>
+                <li>Jule</li>
+            </ul>
+    </ol>    
+
+    <!--Div Blocks-->
+    <br>
+    <div>
+        HTML DIV
+    </div>
+
+    <!--Inline-->
+    <span>
+        HTML SPAN
+    </span>
+    <!--Here no need for br because before was Div-->
+
+    <!--Form-->
+    <form action = "" method = ""> <!--Here in Method we have "Post" and "Get"-->
+        <label for = "">USERNAME</label>
+        <br>
+        <input type = "text" value = "USER" id = "" readonly> <!--If we have here readonly, there is no way to input anything-->
+        <br>
+        <label for = "">EMAIL</label>
+        <br>
+        <input type = "email" id = "" required> <!--Required mean we should enter data, otherwise it will show some issue like enter data-->
+        <br>
+        <label for = "">PASSWORD</label>
+        <br>
+        <input type = "password" id = "" maxlength = "15" minlength = "5" required>
+        <br>
+        <input type = "number" value = "0" min = "0" max = "50" step = "5">
+        <br>
+        <input type = "datetime-local">
+        <br>
+        <input type = "checkbox">
+        <br>
+        <label for = "">GENDER</label>
+        <br>
+        <input type = "radio" name = "Male"> <label for = "">Male</label>
+        <br>
+        <input type = "radio" name = "Female"> <label for = "">Female</label>
+        <br>
+        <input type = "submit" value = "ENTER" id = "">
+    </form>
+
+    <!--CSS APPLICATION-->
+    <h1 class = "title">CLASS</h1>
+    <h1 id = "title">ID</h1>
+    <h1 class = "title" id = "title">ID more that CLASS</h1>
+    <h1 style = "color:rgba(100, 90, 90, 0.25)">INTEGRATED COLOR STYLE</h1> <!--Color without assignment based on ID and CLASS-->
+    <!--RGBA or HEX modules, where 4th element in RGBA acts for transparency-->
+
+    <p class = "title">HTML is a structure or skeleton, but combination HTML with CSS give us full body.</p>
+    <img class = "image1" src = "./assets/HTML STRUCTURE.png" alt = "ISSUE">
+    <img class = "image2" src = "./assets/HTML STRUCTURE.png" alt = "ISSUE">
+
+    <br>
+    <div class = "div1"></div>
+
+    <span>INLINE EXAMPLE.</span>
+    <div class = "divconvert"> DIV BLOCK THAT CONVERTED TO INLINE</div>
+
+    <br>
+    <div class = "parentDiv">
+        <div class = "childDiv"></div>
+    </div>
+   
+    <br>
+
+    <div>
+        <div class="adbanner"></div>
+    </div>
+
+    <br>
+
+    <!-- <div class = "box"></div> -->
+
+    <!-- DISPLAY-FLEX -->
+    <p class = "pdflex">LOGIN/REGISTER</p>
+
+    <ul class = "uldflex">
+        <li>MAIN</li>
+        <li>HOME</li>
+        <li>PROFILE</li>
+    </ul>
+
+    <div class = "boxes">
+        <div class = "box">
+            <div class = "box1">5</div>
+            <div class = "box2">4</div>
+        </div>
+        
+    </div>
+
+
+</body> <!--Closing Main Part-->
+</html> <!--Closing HTML part-->

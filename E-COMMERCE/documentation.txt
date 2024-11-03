@@ -1,0 +1,156 @@
+Deploying env and docker:
+py -m venv env -> env\Scripts\activate
+docker-compose up -d
+
+Package:
+pip install Flask Flask-SQLAlchemy Flask-Migrate
+pip install mysql
+pip install flask-admin
+pip install Flask-WTF
+pip install email-validator
+pip install flask_login
+pip install flask_mail
+
+Rearrangment and changes:
+New Templates - base.html, header.html, footer.html
+Changes Templates - shop.html, detail.html, contact.html, favorites.html, login.html, register.html
+Changes Jinja Application and Script for it (for url_for)
+
+Controller:
+Adding Basic Routes
+
+Database:
+flask db init - Create migrations folder
+flask db migrate
+flask db upgrade
+Category - 
+    >>> men = Category(name='Men')
+    >>> women = Category(name='Women')
+    >>> kids = Category(name='Kids')
+    >>>
+    >>> upper_body_men = Category(name='Upper Body', parent=men)
+    >>> lower_body_men = Category(name='Lower Body', parent=men)
+    >>> footwear_men = Category(name='Footwear', parent=men)
+    >>>
+    >>> upper_body_women = Category(name='Upper Body', parent=women)
+    >>> lower_body_women = Category(name='Lower Body', parent=women)
+    >>> footwear_women = Category(name='Footwear', parent=women)
+    >>>
+    >>> upper_body_kids = Category(name='Upper Body', parent=kids)
+    >>> lower_body_kids = Category(name='Lower Body', parent=kids)
+    >>> footwear_kids = Category(name='Footwear', parent=kids)
+    >>>
+    >>> db.session.add_all([
+    ...     men, women, kids,
+    ...     upper_body_men, lower_body_men, footwear_men,
+    ...     upper_body_women, lower_body_women, footwear_women,
+    ...     upper_body_kids, lower_body_kids, footwear_kids
+    ... ])
+    >>>
+    >>> db.session.commit()
+
+Products - 
+    # Импортируйте необходимые модули и модели
+    from your_app import db
+    from your_app.models import Category, Product
+
+    # Определите список продуктов для каждой категории
+    categories_products = {
+        'Men': {
+            'Upper Body': [
+                {'name': 'Men T-shirt', 'price': 19.99, 'description': 'Comfortable cotton t-shirt for men', 'image': 'men_tshirt.jpg'},
+                {'name': 'Men Sweater', 'price': 39.99, 'description': 'Warm and cozy sweater for men', 'image': 'men_sweater.jpg'},
+                {'name': 'Men Jacket', 'price': 59.99, 'description': 'Stylish winter jacket for men', 'image': 'men_jacket.jpg'},
+                {'name': 'Men Hoodie', 'price': 29.99, 'description': 'Casual hoodie with front pocket for men', 'image': 'men_hoodie.jpg'},
+                {'name': 'Men Blazer', 'price': 89.99, 'description': 'Elegant blazer for men', 'image': 'men_blazer.jpg'}
+            ],
+            'Lower Body': [
+                {'name': 'Men Jeans', 'price': 49.99, 'description': 'Denim jeans for men', 'image': 'men_jeans.jpg'},
+                {'name': 'Men Shorts', 'price': 24.99, 'description': 'Comfortable summer shorts for men', 'image': 'men_shorts.jpg'},
+                {'name': 'Men Skirt', 'price': 34.99, 'description': 'Stylish skirt for men', 'image': 'men_skirt.jpg'},
+                {'name': 'Men Leggings', 'price': 19.99, 'description': 'Stretchy leggings for men', 'image': 'men_leggings.jpg'},
+                {'name': 'Men Trousers', 'price': 44.99, 'description': 'Formal trousers for men', 'image': 'men_trousers.jpg'}
+            ],
+            'Footwear': [
+                {'name': 'Men Sneakers', 'price': 59.99, 'description': 'Comfortable sneakers for men', 'image': 'men_sneakers.jpg'},
+                {'name': 'Men Boots', 'price': 79.99, 'description': 'Durable boots for men', 'image': 'men_boots.jpg'},
+                {'name': 'Men Sandals', 'price': 29.99, 'description': 'Lightweight sandals for men', 'image': 'men_sandals.jpg'},
+                {'name': 'Men Loafers', 'price': 49.99, 'description': 'Classic loafers for men', 'image': 'men_loafers.jpg'},
+                {'name': 'Men Oxfords', 'price': 69.99, 'description': 'Formal oxfords for men', 'image': 'men_oxfords.jpg'}
+            ]
+        },
+        'Women': {
+            'Upper Body': [
+                {'name': 'Women T-shirt', 'price': 21.99, 'description': 'Comfortable cotton t-shirt for women', 'image': 'women_tshirt.jpg'},
+                {'name': 'Women Sweater', 'price': 42.99, 'description': 'Warm and cozy sweater for women', 'image': 'women_sweater.jpg'},
+                {'name': 'Women Jacket', 'price': 62.99, 'description': 'Stylish winter jacket for women', 'image': 'women_jacket.jpg'},
+                {'name': 'Women Hoodie', 'price': 32.99, 'description': 'Casual hoodie with front pocket for women', 'image': 'women_hoodie.jpg'},
+                {'name': 'Women Blazer', 'price': 92.99, 'description': 'Elegant blazer for women', 'image': 'women_blazer.jpg'}
+            ],
+            'Lower Body': [
+                {'name': 'Women Jeans', 'price': 52.99, 'description': 'Denim jeans for women', 'image': 'women_jeans.jpg'},
+                {'name': 'Women Shorts', 'price': 27.99, 'description': 'Comfortable summer shorts for women', 'image': 'women_shorts.jpg'},
+                {'name': 'Women Skirt', 'price': 37.99, 'description': 'Elegant skirt for women', 'image': 'women_skirt.jpg'},
+                {'name': 'Women Leggings', 'price': 21.99, 'description': 'Stretchy leggings for women', 'image': 'women_leggings.jpg'},
+                {'name': 'Women Trousers', 'price': 47.99, 'description': 'Formal trousers for women', 'image': 'women_trousers.jpg'}
+            ],
+            'Footwear': [
+                {'name': 'Women Sneakers', 'price': 62.99, 'description': 'Comfortable sneakers for women', 'image': 'women_sneakers.jpg'},
+                {'name': 'Women Boots', 'price': 82.99, 'description': 'Durable boots for women', 'image': 'women_boots.jpg'},
+                {'name': 'Women Sandals', 'price': 32.99, 'description': 'Lightweight sandals for women', 'image': 'women_sandals.jpg'},
+                {'name': 'Women Loafers', 'price': 52.99, 'description': 'Classic loafers for women', 'image': 'women_loafers.jpg'},
+                {'name': 'Women Oxfords', 'price': 72.99, 'description': 'Formal oxfords for women', 'image': 'women_oxfords.jpg'}
+            ]
+        },
+        'Kids': {
+            'Upper Body': [
+                {'name': 'Kids T-shirt', 'price': 15.99, 'description': 'Comfortable cotton t-shirt for kids', 'image': 'kids_tshirt.jpg'},
+                {'name': 'Kids Sweater', 'price': 29.99, 'description': 'Warm and cozy sweater for kids', 'image': 'kids_sweater.jpg'},
+                {'name': 'Kids Jacket', 'price': 49.99, 'description': 'Stylish winter jacket for kids', 'image': 'kids_jacket.jpg'},
+                {'name': 'Kids Hoodie', 'price': 22.99, 'description': 'Casual hoodie with front pocket for kids', 'image': 'kids_hoodie.jpg'},
+                {'name': 'Kids Blazer', 'price': 69.99, 'description': 'Elegant blazer for kids', 'image': 'kids_blazer.jpg'}
+            ],
+            'Lower Body': [
+                {'name': 'Kids Jeans', 'price': 39.99, 'description': 'Denim jeans for kids', 'image': 'kids_jeans.jpg'},
+                {'name': 'Kids Shorts', 'price': 19.99, 'description': 'Comfortable summer shorts for kids', 'image': 'kids_shorts.jpg'},
+                {'name': 'Kids Skirt', 'price': 29.99, 'description': 'Stylish skirt for kids', 'image': 'kids_skirt.jpg'},
+                {'name': 'Kids Leggings', 'price': 16.99, 'description': 'Stretchy leggings for kids', 'image': 'kids_leggings.jpg'},
+                {'name': 'Kids Trousers', 'price': 35.99, 'description': 'Formal trousers for kids', 'image': 'kids_trousers.jpg'}
+            ],
+            'Footwear': [
+                {'name': 'Kids Sneakers', 'price': 49.99, 'description': 'Comfortable sneakers for kids', 'image': 'kids_sneakers.jpg'},
+                {'name': 'Kids Boots', 'price': 69.99, 'description': 'Durable boots for kids', 'image': 'kids_boots.jpg'},
+                {'name': 'Kids Sandals', 'price': 24.99, 'description': 'Lightweight sandals for kids', 'image': 'kids_sandals.jpg'},
+                {'name': 'Kids Loafers', 'price': 39.99, 'description': 'Classic loafers for kids', 'image': 'kids_loafers.jpg'},
+                {'name': 'Kids Oxfords', 'price': 59.99, 'description': 'Formal oxfords for kids', 'image': 'kids_oxfords.jpg'}
+            ]
+        }
+    }
+
+    # Функция для добавления продуктов в категорию
+    def add_products_for_all_categories():
+        for parent_category_name, subcategories in categories_products.items():
+            parent_category = Category.query.filter_by(name=parent_category_name).first()
+            if parent_category:
+                for subcategory_name, products in subcategories.items():
+                    subcategory = Category.query.filter_by(name=subcategory_name, parent_id=parent_category.id).first()
+                    if subcategory:
+                        for product in products:
+                            new_product = Product(
+                                name=product['name'],
+                                price=product['price'],
+                                description=product['description'],
+                                image=product['image'],
+                                category_id=subcategory.id
+                            )
+                            db.session.add(new_product)
+        db.session.commit()
+
+    # Выполните функцию
+    add_products_for_all_categories()
+
+    print("Products added successfully.")
+
+LOGIC OF VERIFICATION - 
+During Registration after pressing button register we will be redirected to verification page,
+where we need to confirm otp that was sent to gmail.

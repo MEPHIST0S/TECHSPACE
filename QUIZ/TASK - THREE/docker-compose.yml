@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "4444"
+    ports:
+      - "3308:3306"
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"

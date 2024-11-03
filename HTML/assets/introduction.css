@@ -1,0 +1,135 @@
+h1{
+    color:chartreuse;
+    text-align: center;
+}
+
+/* p{
+    text-align: center;
+} */
+
+.title{
+    color:aqua;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: medium;
+}
+#title{
+    color:blue
+}
+
+.image1{
+    width: 250px;
+    height: 250px;
+    filter: invert(1)
+}
+
+.image2{
+    width: 250px;
+    height: 250px;
+}
+
+.divconvert{
+    display: inline-block; /*Convert block to inline*/
+    color: blue;
+}
+
+.div1{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    margin: 20px;
+    background-color: #0ddbed;
+    background-position: center;
+}
+
+.parentDiv{
+    width: 500px;
+    height: 500px;
+    border: 1px solid #2fed0d;
+    position: relative;
+}
+
+.childDiv{
+    width: 200px;
+    height: 200px;
+    border: 1px dashed #b9ed0d;
+    position: absolute;
+    bottom: 150px;
+    left: 150px;
+}
+
+.adbanner{
+    width: 100%;
+    height: 20vh;
+    background-image: url(./HTML.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*MEDIAQUERRY*/ 
+/* @media only screen and (max-width: 600px) {
+    .box{
+        width: 600px;
+        height: 600px;
+        border: 1px dashed #000;
+        background-color: aquamarine;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .box{
+        width: 300px;
+        height: 300px;
+        border: 1px dashed #000;
+        background-color: rgb(228, 127, 5);
+    }
+} */
+
+/*HERE WE CAN ASSIGN WHIC ELEMENT SHOULD BE REPRESENT DEPEND ON SIZE OF WEBSITE. 
+THIS IS EXAMPLE OF MOBILE AND DESKTOP MODES.*/
+
+.uldflex{
+    display: flex;
+    list-style: none;
+    gap: 20px; /*SPACE BETWEEN WORDS*/
+    flex-direction: row-reverse;
+    justify-content:space-around;
+}
+
+/*@media only screen and (max-width: 601px){
+    .uldflex{
+        flex-direction: column-reverse
+    }
+}
+*/
+/*Here as soon as the size will pay requirments the list will be represented as reversed column*/
+
+.pdflex{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.boxes{
+    width: 1000px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2;
+    gap: 20 px;
+}
+
+.box{
+    width: 25%;
+    height: 500px;
+}
+
+.box1{
+    background-color: #0ddbed;
+}
+
+.box2{
+    background-color: #29e015;
+}

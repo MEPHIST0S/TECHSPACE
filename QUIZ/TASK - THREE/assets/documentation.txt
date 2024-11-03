@@ -1,0 +1,23 @@
+"pip install Flask Flask-SQLAlchemy Flask-Migrate"
+pip install mysql
+flask db init - Create migrations folder
+Then after creation model that is our table instance we migrate it by "flask db migrate" then "flask db upgrade"
+Adding to table info -> flask shell -> from model import Class_Name -> variable = Class_Name('title' = 'smth', ....) -> db.session.add(variable) -> db.session.commit() or 
+-> variable.save() (if save fucntion was created)
+(env) PS C:\Users\User\OneDrive\Desktop\QUIZ\TASK - THREE> flask shell
+Python 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)] on win32
+App: app
+Instance: C:\Users\User\OneDrive\Desktop\QUIZ\TASK - THREE\instance
+>>> from models import Movie
+>>> movie = Movie('Inception', '16 Jul 2010', 'Christopher Nolan', 'Action, Adventure, Sci-Fi')
+>>> movie.save()
+>>> movie1 = Movie('The Dark Knight', '18 Jul 2008', 'Christopher Nolan', 'Action, Crime, Drama')
+>>> movie2 = Movie('Interstellar', '07 Nov 2014', 'Christopher Nolan', 'Adventure, Drama, Sci-Fi')
+>>> movie3 = Movie('The Matrix', '31 Mar 1999', 'Lana Wachowski, Lilly Wachowski', 'Action, Sci-Fi')
+>>> movie4 = Movie('Fight Club', '15 Oct 1999', 'David Fincher', 'Drama')
+>>> movie5 = Movie('Pulp Fiction', '14 Oct 1994', 'Quentin Tarantino', 'Crime, Drama')
+>>> movie1.save()                                                                                    
+>>> movie2.save() 
+>>> movie3.save() 
+>>> movie4.save() 
+>>> movie5.save() 

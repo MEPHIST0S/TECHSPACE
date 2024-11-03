@@ -1,0 +1,29 @@
+FIRSTLY was created files app.py, extensions.py, tools.py and docker-compose.yml, then folders(assets, templates).
+assets -> css, images, js, documentation.txt
+templates -> base.html, index.html
+
+SECOND STEP is deploying env by: py -m venv env, then importing libraries and installing them:
+"pip install Flask Flask-SQLAlchemy Flask-Migrate"
+
+THIRD STEP making template from which other htmls will inherit in base.html, then in index.html constructing main page. (via bootstrap)
+notes: 
+<section>
+class = "col-md-7"
+class = "row"
+class = "w-75" - width (/25/50/100)
+text-primary
+text-secondary
+text-dark
+text-muted
+font-weight-bolder
+class = "ms-5" (mt, mb, me)
+class = "me-5" - margin end (right)
+class = "fixed-top"
+class = "border"
+
+FOURTH STEP after connecting SQLAlchemy with some comms:
+pip install mysql
+flask db init - Create migrations folder
+Then after creation model that is our table instance we migrate it by "flask db migrate" then "flask db upgrade"
+Adding to table info -> flask shell -> from model import Class_Name -> variable = Class_Name('title' = 'smth', ....) -> db.session.add(variable) -> db.session.commit() or 
+-> variable.save() (if save fucntion was created)

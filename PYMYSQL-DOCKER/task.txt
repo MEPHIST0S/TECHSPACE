@@ -1,0 +1,19 @@
+Mövzular:
+    - PyMySql
+## Tapşırıq 1:
+ - Verilənlər bazası serverinizə qoşulun, cədvəllər yaradın və məlumatları daxil edin.
+   Nümunə:
+  -Xəstəxana məlumatı:  (hospital_table.png)
+  -Həkim məlumatı:      (doctor_table.png)
+## Tapşırıq 2:
+ - **Hospital Id** və **Doctor Id** istifadə edərək **Hospital** və **Doctor** datalarini əldə etmək üçün funksiyalar(method) yazin.
+  Yəni, Hospital və Doctor cədvəlindəki qeydləri verilmiş hospital_id və doctor_id-inə uyğun olaraq gətirin.
+## Tapşırıq 3:
+ - Verilən ixtisasa(speciality) və əmək haqqına(salary) uyğun olaraq həkimlərin siyahısını əldə etmək ucun funksiya yazin.
+  Bu funksiya salary'si argumentdeki məbləğdən yüksək olan və ixtisası argumentdeki ixtisasla eyni olan bütün həkimləri gətirməlidir.
+## Tapşırıq 4:
+ - Verilən xəstəxanadan həkimlərin siyahısını almaq üçün bir funksiya yazin.
+  Bu funksiya verilmiş hospital_id'e uyğun olaraq bütün həkimləri gətirməlidir. Siz eyni zamanda həkimin işlədiyi xəstəxana adını da göstərməlisiniz.
+## Tapşırıq 5:
+ - İllərə görə (joining_date) həkimin təcrübəsini (experience) yeniləmək üçün bir funksiya yazin (TIMESTAMPDIFF).
+  Hər bir həkim üçün experience sütununun dəyəri 'NULL'dur. Yazacağınız method həkimin experience sütununu işlədiyi il sayı qədər yeniləməlidir.

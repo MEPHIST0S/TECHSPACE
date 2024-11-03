@@ -1,0 +1,27 @@
+''DOCKER-COMPOSE.YML'':
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: "4444"
+    ports:
+      - "3308:3306"
+  adminer:
+    image: adminer
+    ports:
+      - "8081:8080"
+
+DOCKER DEPLOYING:
+'docker-compose up -d'
+
+CREATE DATABASE MOVIE_INFO
+
+CREATE TABLE MOVIE_INFO (
+ ID INT PRIMARY KEY AUTO_INCREMENT,
+ TITLE VARCHAR(255) NOT NULL,
+ RELEASED DATE,
+ DIRECTOR VARCHAR(255) NOT NULL,
+ GENRE VARCHAR(255)
+);
